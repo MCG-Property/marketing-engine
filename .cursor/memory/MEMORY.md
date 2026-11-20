@@ -47,8 +47,9 @@ Operational history belongs in `/memory/memories/YYYY-MM-DD-continuation.md` or 
 ## Stable decisions
 
 - Git `origin` is `https://github.com/MCG-Property/marketing-engine.git`. The agent-instructions source remote is `template` (`https://github.com/cam-douglas/agent-instructions.git`). Do not push this project's history to `template`.
-- EL-MCG-002 product contract: `docs/blueprints/MCG_Property_Marketing_Automation_Technical_Implementation_Plan.md`. Rule: AI may suggest, code controls, MCG approves. Active plan: `docs/plans/phase_2_content_workflow_plan.md`. Workstream: `docs/workstreams/20261120-mcg-marketing-automation/manifest.md`. Publishing stays closed until S0-1 and S0-2 are done in phase 3.
-- Hermes governor: profile `marketingprojectlead` on `hermes-droplet-cindy`, checkout `/root/marketing-engine`. Draft only. Decision: `docs/decisions/0003-hermes-draft-profile.md`. Do not reuse `inboundengineprojectlead` for this project.
+- EL-MCG-002 product contract: `docs/blueprints/MCG_Property_Marketing_Automation_Technical_Implementation_Plan.md`. Rule: AI may suggest, code controls, MCG approves. Active plan: `docs/plans/phase_3_approvals_publishing_plan.md`. Workstream: `docs/workstreams/20261120-mcg-marketing-automation/manifest.md`. Publishing stays closed: the switch stays off and no Buffer or Meta call is made.
+- Hermes governor: profile `marketingprojectlead` on `hermes-droplet-cindy`, checkout `/root/marketing-engine`. Draft only. Decision: `docs/decisions/0003-hermes-draft-profile.md`. Voice is the profile `SOUL.md`, which the operator sets. Do not reuse `inboundengineprojectlead` for this project.
+- Milestone 2 was accepted on 2026-11-20. A sample draft is acceptable as a draft. Office hours are Monday to Friday, 9am to 6pm, closed Saturday and Sunday.
 
 ## Existing workflow references
 

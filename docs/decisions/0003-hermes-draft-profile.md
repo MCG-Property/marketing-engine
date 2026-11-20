@@ -7,11 +7,13 @@ The marketing engine is governed on `hermes-droplet-cindy` by the Hermes profile
 
 The checkout is `/root/marketing-engine`. The host's GitHub deploy keys cannot read `MCG-Property/marketing-engine`, so this is a copy of the working tree, not a git clone.
 
-OpenRouter model ids, taken from the public catalog on 2026-11-20:
+OpenRouter model ids for this profile, checked on 2026-11-20:
 
-- Text: `anthropic/claude-opus-5.5`
-- Still image, only where no real photograph exists: `google/gemini-nano-banana-2.1` (Nano Banana 2.1). Its catalog output is image and text.
-- Video and GIF: that model does not produce them. `video_gen.model` is set to the same id so a video call is rejected instead of using another video model.
+- Text: `openai/gpt-6-luna`, the newest GPT Luna that is not the Pro or batch variant.
+- Still image, only where no authorised photograph exists: `x-ai/grok-imagine-image-2.0`.
+- Video and GIF are not used. `video_gen.model` stays on the image model so a video call is rejected instead of using another video model.
+
+The posting brief is `docs/prompts/marketingprojectlead.md`. The live copy is the profile `SOUL.md`.
 
 The profile may draft. It must not publish, send, or enable a kill switch. No cron job was added. No model call was made.
 

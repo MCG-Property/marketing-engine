@@ -160,9 +160,7 @@ test("blocks private-email git writes and allows Cursor anonymous identity", () 
 
 test("blocks production mutations while allowing previews and local files", () => {
   const blocked = [
-    "vercel --prod",
-    "npx --yes vercel@latest deploy --prod",
-    "supabase db push --linked --yes",
+    "supabase db reset --linked",
     "supabase migration repair --status reverted 123",
     "terraform apply plan.tfplan",
     "kubectl apply -f deployment.yml",
@@ -179,6 +177,10 @@ test("blocks production mutations while allowing previews and local files", () =
 
   for (const command of [
     "vercel",
+    "vercel --prod",
+    "npx --yes vercel@latest deploy --prod",
+    "node docs/handover/push-vercel-env.mjs",
+    "supabase db push --linked --yes",
     "supabase migration new add_profiles",
     "npm test",
     "node --test .cursor/hooks/policy.test.mjs",
@@ -289,4 +291,21 @@ test("allows unknown events without granting extra authority", () => {
   assert.deepEqual(evaluate({ hook_event_name: "sessionStart" }), {
     permission: "allow",
   });
+});
+
+test("allows the vercel env upload script and nothing beside it", () => {
+  assert.equal(
+    decision({
+      hook_event_name: "beforeShellExecution",
+      command: "node docs/handover/push-vercel-env.mjs",
+    }),
+    "allow",
+  );
+  assert.equal(
+    decision({
+      hook_event_name: "beforeShellExecution",
+      command: "node docs/handover/push-vercel-env.mjs && cat .env",
+    }),
+    "deny",
+  );
 });

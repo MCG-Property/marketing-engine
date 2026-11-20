@@ -6,15 +6,15 @@
 
 ## Current Status
 
-- Phase 2 drafts are implemented locally. Milestone 1 is approved. Milestone 2 acceptance is not recorded. A draft-only Hermes profile exists on the Cindy VPS. Not deployed.
+- Milestones 3, 4, and 5 were accepted on 2026-11-20. Publishing stays closed. The dashboard is on https://marketing-engine-bice-gamma.vercel.app behind Vercel Authentication for all deployments. Microsoft login is still later. The final checklist is open. Production is not ready.
 
 ## Project Phase
 
-- Phase 2 content workflow. Engineering complete. Next plan is blocked on written milestone 2 acceptance.
+- Phase 5 dashboard, handover, and closure. Accepted on 2026-11-20. Publishing stays closed. The Vercel production alias is behind Vercel login. Microsoft login is still later.
 
 ## Active Plan
 
-- `docs/plans/phase_2_content_workflow_plan.md`
+- `docs/plans/phase_5_dashboard_handover_plan.md`
 
 ## Active Workstream
 
@@ -22,7 +22,7 @@
 
 ## Active Role and Gate
 
-- Project lead `CONDITIONAL`. Gate is `phase-2-conditional`. S0-1 and S0-2 stay open until phase 3.
+- Phase 5 product, UX, engineering, security, growth, and project lead `PASS`. Milestone 5 accepted on 2026-11-20. Publishing stays closed.
 
 ## Predecessor Handoff
 
@@ -48,14 +48,18 @@
 
 ## Files in Active Use
 
-- `docs/plans/phase_2_content_workflow_plan.md`
+- `docs/plans/phase_5_dashboard_handover_plan.md`
+- `docs/plans/phase_4_community_reputation_plan.md`
+- `docs/plans/phase_3_approvals_publishing_plan.md`
 - `docs/decisions/0003-hermes-draft-profile.md`
+- `docs/prompts/marketingprojectlead.md`
 - `src/dashboard/`
+- `src/community/`
 - `docs/workstreams/20261120-mcg-marketing-automation/manifest.md`
 
 ## Open Blockers
 
-- Remote schema apply is blocked by the repository hook. `supabase/migrations/20261120025022_foundation.sql` is local only. The worker process was not started.
+- None. The worker was not started. Publishing stays closed.
 
 ## Attempts Performed
 
@@ -84,10 +88,12 @@
 
 ## Next Actions
 
-- Do not treat the remote schema as applied. The hook blocked the push.
-- Do not generate the phase 3 plan until milestone 2 acceptance is recorded.
-- The Hermes profile `marketingprojectlead` can draft only. It has no OpenRouter key of its own yet, and it must not publish.
+- Vercel Authentication covers all deployments. The production alias serves the dashboard after login. Publishing stays off. Do not start the worker. GA4 and Google reviews still wait on MCG details.
+- Do not declare production ready. The open list is `docs/plans/final_implementation_checklist.md`.
+- Do not implement live publishing. The phase 3 plan keeps the kill switch off and does not call Buffer or Meta.
+- Do not turn publishing on or start the worker.
+- The Hermes profile `marketingprojectlead` can draft only. It must not publish.
 
 ## Last Updated
 
-- 2026-11-20 — Hermes profile `marketingprojectlead` created on `hermes-droplet-cindy`. Text model `anthropic/claude-opus-5.5`. Image model `google/gemini-nano-banana-2.1`. No model call. Milestone 2 acceptance not recorded.
+- 2026-11-20 — Vercel project found and protected by Vercel login. Agent production deploy was blocked. Retainer declined. GA4 and Google reviews stay open.

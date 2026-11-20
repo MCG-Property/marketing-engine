@@ -78,3 +78,108 @@
 - Text model is `anthropic/claude-opus-5.5`. Still images use `google/gemini-nano-banana-2.1` only when a real photograph is missing. That model does not output video or GIF.
 - The working tree was copied to `/root/marketing-engine`. GitHub deploy keys on the host cannot read the private repo, so it is not a git clone.
 - No model call was made. The profile does not inherit the root OpenRouter credential. No cron was added. Publishing stays off.
+
+## Phase 3 plan
+
+- Operator asked for the phase 3 plan while milestone 2 acceptance was still unrecorded. The plan records that. Samples stay unapprovable.
+- Wrote `docs/plans/phase_3_approvals_publishing_plan.md`. It closes S0-1 and S0-2 before any adapter call, keeps the kill switch off, and does not call Buffer or Meta.
+- Phase 3 was not implemented. The phase 4 plan was not written.
+
+## Generated sample
+
+- Confirmed `marketingprojectlead` has an OpenRouter key. The value was not read.
+- Generated one sample property tip with Claude Opus 5.5 and one abstract graphic with Nano Banana 2.1. It is on the local dashboard and is not a listing photograph.
+
+## Agency sample
+
+- Replaced the marketing profile defaults. Text is `openai/gpt-6-luna`. Still images are `minimax/minimax-h3-image`. The brief is `docs/prompts/marketingprojectlead.md`, copied to the profile `SOUL.md`.
+- The first graphic was abstract because the prompt banned buildings, type, and logos. The replacement is a black-and-white social tile: tidy living room, headline "Prepare the home.", MCG Property name. The wide logo was rejected by MiniMax because it is wider than 4:1, so the square logo was the reference.
+- Caption: "Sample: Before the photographer arrives, clear the benches and put away everyday clutter. Open the curtains to let in the light."
+- Milestone 2 acceptance is still not recorded. Nothing was published. The inbound profile and the running gateway were not changed.
+
+## Milestone 2 acceptance
+
+- Operator accepted milestone 2 on 2026-11-20. A sample draft is acceptable as a draft. It is not a live post.
+- Office hours are confirmed: Monday to Friday, 9am to 6pm, closed Saturday and Sunday.
+- Voice was not supplied. The operator will set it in `/root/.hermes/profiles/marketingprojectlead/SOUL.md`. The repo copy is `docs/prompts/marketingprojectlead.md`.
+- Later the same day, the operator edited `docs/prompts/marketingprojectlead.md` and that file was copied to the profile `SOUL.md`. The SHA-256 hashes matched.
+
+## Phase 3 implementation
+
+- Implemented the written phase 3 plan. Queue in `src/approval/`. Reserve and adapters in `src/providers/publish-run.ts` and `src/providers/adapters.ts`.
+- `npm test` passed 46. `npm run typecheck` exited 0. No worker, no hosted migration, no Buffer or Meta call.
+- Image default on `marketingprojectlead` changed to `x-ai/grok-imagine-image-2.0`. Video stays on that image model so a video call is rejected. The prompt and `SOUL.md` hashes matched after the copy.
+- Milestone 3 acceptance is not recorded. Phase 4 was not generated.
+
+## Phase 3 recheck
+
+- Operator asked to finish phase 3 if it was not already done. The plan status is complete and tasks 1–5 are done.
+- Re-ran `npm test`: 46 passed. `npm run typecheck` exited 0. No code change. No worker, no hosted migration, no Buffer or Meta call.
+- Corrected the state line that still said phase 3 was plan only. Milestone 3 acceptance is still not recorded. Phase 4 was not generated.
+
+## Message inbox
+
+- The loopback dashboard now reads Messenger and Instagram conversations with the Page token in the local env file and can send a reply. Post publishing stays off.
+- `npm test` passed 47. `npm run typecheck` exited 0. The token value was not printed.
+
+## Page token lifetime
+
+- Reloaded the local dashboard after the Page token was replaced. Graph reports the token type as PAGE for page `109832611867103`, with no expiry time.
+- Messenger returned 13 threads and Instagram returned 1. The dashboard page showed the same counts and no load error. The token value was not printed.
+- Post publishing stays off. Milestone 3 acceptance is not recorded.
+
+## WhatsApp and iMessage request
+
+- Operator asked to forward Messenger and Instagram threads to WhatsApp for Cindy, let `marketingprojectlead` read and send those replies, and keep other requests on iMessage.
+- On `hermes-droplet-cindy`, the live gateway (pid 558314) already had one WhatsApp target, named Cindy. `marketingprojectlead` had no messaging channel. Photon is not connected.
+
+## VPS move
+
+- Moved the WhatsApp session onto `marketingprojectlead` and disabled it on the default profile. The gateway is the user service, because the old system unit crash-looped on a stale Python. The system unit is disabled. Marketing WhatsApp state is connected. Inbound is still served.
+- Cloned the project to `/root/marketing-engine` from commit `7f08286`, then copied the current working tree. `marketing-dashboard.service` is active on `127.0.0.1:8787`. A push to `vps` (`hermes-droplet-cindy:/root/marketing-engine.git`) deploys `main` only when that commit contains `src/dashboard/inbox.ts`.
+- The secret file was not copied. The safety check blocked it. The dashboard shows no enquiries. Publishing stays off.
+
+## Milestone 3 and phase 4 plan
+
+- Operator accepted the dashboard post queue, Buffer then Meta then manual with the switch off, and the memory store.
+- WhatsApp is the approval channel for Facebook and Instagram messages. Post decisions wait for iMessage.
+- Wrote `docs/plans/phase_4_community_reputation_plan.md`. Phase 4 was not implemented. Phase 5 was not generated.
+
+## Phase 4 implementation
+
+- Held customer replies unless a stored approval is passed and the community-reply row is on. Removed the dashboard reply form.
+- Added classification, routing, WhatsApp notice text, comment reads, a manual review draft, and visibility checks. Switches stay off.
+- `npm test` 55 passed. `npm run typecheck` exit 0. The worker was not started. The hosted schema was not applied. Milestone 4 is not accepted. Phase 5 was not generated.
+- The WhatsApp notice is on the loopback page. No chat id is known, so Hermes was not called. The VPS tree was not updated and still has no Page token.
+
+## Milestone 4 follow-up
+
+- Routine drafts now use `openai/gpt-6-luna` on the marketing profile. Cindy's reply is still required before a customer send, and the community switch stays off.
+- The marketing WhatsApp home channel is Cindy's logged-in account. A setup note and the current routine drafts were sent there.
+- Supabase storage code and an RLS migration are in the repo. The linked database push was blocked by the repository hook, so nothing was written to the hosted database. Milestone 4 is not accepted.
+
+## Owner schema command
+
+- `supabase db push --linked --yes` applied `20261120025022` and `20261120101138`. Local and remote versions match. The dashboard still needs `DATABASE_URL`.
+- The owner command is `npx supabase db push --linked --yes` from the repo, then `DATABASE_URL` in `.env` using the session pooler URI. Restart the dashboard after that. The first load writes the rows and sends the current drafts to WhatsApp once more.
+- A gateway-stored WhatsApp reply now attaches to the latest routine draft. The reader returned no reply. `npm test` 57 passed. `npm run typecheck` exit 0.
+
+## Milestone 4 accepted
+
+- The corrected database URL connects. The dashboard reports `APP_ENV production` and `community store connected`, with no query failure across two page loads. Three replies stay held. Milestone 4 is accepted. The phase 5 plan was not generated.
+
+## Phase 5 plan
+
+- Wrote `docs/plans/phase_5_dashboard_handover_plan.md`. It is not implemented. Publishing stays off. The final checklist is not written yet.
+
+## Phase 5 built
+
+- Implemented the staff Performance report, the admin view, manual metrics, UTM links, and role checks. `npm test` passed 62 tests and typecheck passed. A restarted dashboard logged `APP_ENV production` and `community store connected`. The staff page returned 200, the admin page showed publishing off, and a READ save returned 403. The checklist is `docs/plans/final_implementation_checklist.md`.
+
+## Milestone 5 accepted
+
+- Accepted on 2026-11-20. Switches stay off. Alerts stay on the admin page until they are in-app notifications. Login will be Microsoft Azure. The Vercel project `cam-douglas-projects/marketing-engine` is protected by Vercel login. Its production deploy is empty, so the public address returns 404. The agent was blocked from deploying. The retainer was declined. GA4 and Google reviews wait on MCG details.
+
+## Vercel dashboard
+
+- Vercel Authentication is set to all deployments. Anonymous requests to https://marketing-engine-bice-gamma.vercel.app redirect to Vercel login. After login, the staff page and admin page return 200. Admin shows the worker stopped and publishing off. Publishing stays off. Production is not ready.

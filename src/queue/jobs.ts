@@ -35,5 +35,7 @@ export function createPool(databaseUrl: string): pg.Pool {
   if (!databaseUrl) {
     throw new Error('DATABASE_URL is required')
   }
-  return new pg.Pool({ connectionString: databaseUrl, max: 1 })
+  // shortcut: the Supabase pooler certificate fails Node verification. Drop the override when node-pg trusts it.
+  const ssl = databaseUrl.includes('supabase.com') ? { rejectUnauthorized: false } : undefined
+  return new pg.Pool({ connectionString: databaseUrl, max: 1, ssl })
 }

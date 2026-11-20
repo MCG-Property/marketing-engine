@@ -19,9 +19,9 @@ Source of truth in code: `src/baseline/access.ts`. Nothing in this list is conne
 | database host | unassigned | No hosted database. |
 | dashboard host | manual | Local process only. Not deployed. |
 
-Phase 3 still owns the open publish conditions:
+Nothing in the table is connected. The local send path now does both conditions, and it still does not call a network:
 
-- S0-1: persist the publication idempotency key before any network send.
+- S0-1: reserve `publication.idempotency_key` before an adapter call.
 - S0-2: load `kill_switch` through `killSwitchesFromRows` on that path.
 
-This phase does not send posts. The dashboard listens on `127.0.0.1` only.
+The publish switch stays off. The dashboard listens on `127.0.0.1` only.

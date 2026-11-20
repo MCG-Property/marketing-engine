@@ -26,7 +26,7 @@ The end state is unchanged from phase 0 §2. This phase leaves drafts that phase
 | 4 | No enquiry or review ingestion. A customer-review template exists, but it does not send a reply. |
 | 5 | The marketing dashboard can show draft previews. Production auth and live metrics stay in phase 5. |
 
-MCG written acceptance of milestone 1 is not recorded. This plan exists because the operator instructed it on 2026-11-20. That instruction does not record milestone acceptance. Milestone 2 acceptance is still required before the phase 3 plan.
+MCG written acceptance of milestone 1 was not recorded when this plan was opened. The operator instructed it on 2026-11-20. Milestone 2 was accepted later the same day. A sample draft is acceptable as a draft.
 
 ## 3. Entry criteria and inherited evidence
 
@@ -76,7 +76,7 @@ Inspected 2026-11-20 after the marketing dashboard change:
 - Content status can move `IDEA` to `DRAFT` through `transition`. `PUBLISHING` is not on that map.
 - The dashboard renderer does not import `beginPublish`, `startWorker`, or `createPool`.
 - Tone examples are empty. Captions cannot imitate a voice MCG has not supplied.
-- Hours were taken from public listings that match each other. They were not printed on the contact page fetched from `mcgproperty.com.au`.
+- Hours are Monday to Friday, 9am to 6pm, closed Saturday and Sunday. The operator confirmed them on 2026-11-20.
 
 ## 7. Assumptions, constraints, risks, and decisions
 
@@ -226,7 +226,7 @@ This phase is Tier 2 for the change itself: local files, no credentials, no depl
 | `software-engineer-subagent` | required | Templates, SVG, examples, tests | UX phase 2 handoff | `src/content/`, `content/examples/`, dashboard drafts, tests | `software-engineer-subagent/phase-2-handoff.md` | PASS |
 | `security-engineer-subagent` | required | Source gate, no publish path, no secrets in SVG or HTML | engineering phase 2 evidence | read-only | `security-engineer-subagent/phase-2-handoff.md` | PASS |
 | `growth-marketing-subagent` | skipped | Channels, offer, and claim boundaries stay the blueprint rules. No new campaign and no numeric claim. Reassess if a model or a statistic is added. Assessed by the lead on 2026-11-20. | none | none | manifest skip for this phase | skipped |
-| `project-lead-subagent` | required | Reconcile milestone 2 evidence and keep S0-1 and S0-2 visible | security phase 2 handoff | phase 2 project-lead handoff | `project-lead-subagent/phase-2-handoff.md` | CONDITIONAL |
+| `project-lead-subagent` | required | Reconcile milestone 2 evidence and keep S0-1 and S0-2 visible | security phase 2 handoff | phase 2 project-lead handoff | `project-lead-subagent/phase-2-handoff.md` | PASS |
 
 Phase 0 and phase 1 handoffs stay as they are.
 
@@ -241,7 +241,7 @@ Phase 0 and phase 1 handoffs stay as they are.
 | Package recommends only Facebook and Instagram | content test | those two channels | passed |
 | Dashboard shows drafts and hides the inventory | dashboard test and one localhost load | six sample titles; no `database host` | passed in tests; localhost reload follows the restart |
 | Phase 0 and 1 gates still pass | `npm test` and `npm run typecheck` | 34 passed, typecheck exit 0 | passed |
-| MCG accepts milestone 2 | written acceptance | recorded in §20 before phase 3 is planned | not recorded |
+| MCG accepts milestone 2 | written acceptance | recorded in §20 | accepted 2026-11-20 |
 
 ## 15. Security, privacy, reliability, accessibility, and performance checks
 
@@ -273,9 +273,9 @@ The example script must not require `.env`.
 |---|---|---|---|---|
 | Accept milestone 1 in writing | Client gate, already missed before this plan | before phase 2 was planned | no, operator instructed this plan | record of acceptance |
 | Accept milestone 2 in writing | Contract gate before phase 3 | before phase 3 is planned | no | record of acceptance |
-| Supply tone examples | Voice MCG has not written | 2, for non-sample voice | no | yes, if still missing |
+| Supply tone examples | Voice MCG has not written. The operator will set it in the Hermes `SOUL.md`. | 2, for non-sample voice | no | yes, if still missing |
 | Supply a real listing photo and facts | Authorised photography | 2, for a non-sample listing | no | yes |
-| Confirm weekday hours if the office differs | Public listings agree; the contact page did not print hours | 1 | no | yes, if wrong |
+| Confirm weekday hours if the office differs | Operator confirmed Monday to Friday, 9am to 6pm, closed Saturday and Sunday | 1 | no | done 2026-11-20 |
 | Connect Facebook, Instagram, Buffer, or a model | Account ownership | 3 or later | no | yes |
 | Close S0-1 and S0-2 | Engineering work on the send path | 3 | no | security re-review |
 
@@ -304,8 +304,8 @@ The phase adds `src/content/`, `content/examples/`, one npm script, and a dashbo
 - `npm test`: 34 passed, 0 failed.
 - `npm run typecheck`: exit 0.
 - Example files written under `content/examples/`. Each contains `Sample`.
-- Role handoffs: product, UX, engineering, and security `PASS`. Project lead `CONDITIONAL` until milestone 2 is accepted.
-- MCG written acceptance of milestone 2 is not recorded. Do not generate the phase 3 plan until it is.
+- Role handoffs: product, UX, engineering, and security `PASS`. Project lead was `CONDITIONAL` until acceptance. That condition is now met.
+- 2026-11-20: MCG accepted milestone 2 in writing. A sample draft is acceptable as a draft. It is not a live post. Office hours are confirmed. Voice remains for the operator to set in `/root/.hermes/profiles/marketingprojectlead/SOUL.md`.
 
 ## 21. Deviations and follow-ups
 
@@ -314,6 +314,7 @@ The phase adds `src/content/`, `content/examples/`, one npm script, and a dashbo
 - The drafting assistant is templates, not a model call.
 - Remote schema apply and the worker remain outside this phase.
 - S0-1 and S0-2 are unchanged.
+- 2026-11-20: the operator instructed the phase 3 plan while milestone 2 acceptance was still unrecorded. Acceptance was recorded later the same day. A sample draft is acceptable as a draft.
 
 ## 22. Next Plan Generation Prompt
 

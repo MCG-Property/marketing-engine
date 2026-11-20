@@ -5,6 +5,7 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+.vercel
 *.pem
 *.key
 *.p12

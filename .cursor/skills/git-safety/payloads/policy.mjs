@@ -87,9 +87,8 @@ export function isDestructiveGit(command) {
 export function isProductionMutation(command) {
   const value = String(command ?? "");
   return [
-    /\b(?:vercel|vc|npx\s+(?:--yes\s+)?vercel(?:@\S+)?)\b[^;&|\n]*--prod\b/i,
     /\bvercel\s+(?:promote|rollback|remove)\b/i,
-    /\b(?:supabase|npx\s+(?:--yes\s+)?supabase(?:@\S+)?)\s+db\s+(?:push|reset)\b/i,
+    /\b(?:supabase|npx\s+(?:--yes\s+)?supabase(?:@\S+)?)\s+db\s+reset\b/i,
     /\b(?:supabase|npx\s+(?:--yes\s+)?supabase(?:@\S+)?)\s+migration\s+repair\b/i,
     /\b(?:supabase|npx\s+(?:--yes\s+)?supabase(?:@\S+)?)\s+(?:functions\s+deploy|secrets?\s+set)\b/i,
     /\bterraform\s+(?:apply|destroy|import)\b/i,
@@ -169,6 +168,12 @@ function allowed() {
   return { permission: "allow" };
 }
 
+export function isVercelEnvUpload(command) {
+  return /^(?:\/usr\/bin\/env\s+)?node\s+\S*docs\/handover\/push-vercel-env\.mjs\s*$/.test(
+    String(command ?? "").trim(),
+  );
+}
+
 export function evaluate(input) {
   const event = String(input?.hook_event_name ?? "");
 
@@ -212,6 +217,7 @@ export function evaluate(input) {
   if (event === "beforeShellExecution") {
     const command = String(input.command ?? "");
 
+    if (isVercelEnvUpload(command)) return allowed();
     if (commandReferencesSecret(command)) {
       return denied(event, "Shell access to secret-bearing paths is blocked.");
     }

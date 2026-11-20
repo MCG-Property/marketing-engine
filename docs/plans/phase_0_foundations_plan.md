@@ -35,7 +35,7 @@ Commercial milestones stay client acceptance stages. They are not extra product 
 | 4 | `docs/plans/phase_4_community_reputation_plan.md` | Milestone 4, A$1,200, week 4 | Comment and enquiry intake, classification, routing, escalation, review requests and replies, visibility checks. | Phase 3 accepted |
 | 5 | `docs/plans/phase_5_dashboard_handover_plan.md` | Milestone 5, A$940, week 5, plus week 6 buffer | Staff dashboard, metrics, UTM, monthly report, roles, alerts, backups, guides, production readiness. Then `docs/plans/final_implementation_checklist.md`. | Phase 4 accepted |
 
-Phase 0 and phase 1 are implemented. The phase 2 plan exists as a draft. Later plan files wait until the previous phase is implemented and verified. MCG written acceptance is the blueprint gate before the next plan. The phase 2 plan was written on an operator instruction while milestone 1 acceptance was still unrecorded. Phase 0 has no client acceptance gate.
+Phase 0, phase 1, and phase 2 are implemented. The phase 3 plan was written on an operator instruction on 2026-11-20 while milestone 2 acceptance was still unrecorded. Later plan files wait until the previous phase is implemented and verified. MCG written acceptance is the blueprint gate before the next plan. Phase 0 has no client acceptance gate.
 
 ### Phase 1 — Strategy baseline
 

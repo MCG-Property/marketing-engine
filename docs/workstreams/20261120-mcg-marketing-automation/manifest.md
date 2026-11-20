@@ -6,18 +6,18 @@ source_request: docs/blueprints/MCG_Property_Marketing_Automation_Technical_Impl
 status: active
 risk_tier: high
 created_at: 2026-11-20T02:00:00Z
-updated_at: 2026-11-20T04:15:00Z
-revision: 4
+updated_at: 2026-11-20T11:02:00Z
+revision: 10
 owner: user-operator
 active_role: none
-current_gate: phase-2-conditional
+current_gate: phase-5-accepted
 ---
 
 # Workstream Manifest: MCG Property marketing automation
 
 ## 1. Objective and requested outcome
 
-Turn the EL-MCG-002 blueprint into a sequential build. Phase 2 sample drafts are implemented. Milestone 1 is approved. Milestone 2 acceptance is not recorded. A draft-only Hermes profile governs a checkout on the Cindy VPS. S0-1 and S0-2 stay open for phase 3.
+Turn the EL-MCG-002 blueprint into a sequential build. Milestones 1 through 5 are accepted. Publishing and community replies stay off. The public dashboard waits for Microsoft login.
 
 ## 2. Source request and project context
 
@@ -25,9 +25,9 @@ The user asked for planned stages under `docs/plans/`, following `.cursor/BOOTST
 
 ## 3. Scope and non-goals
 
-Scope now: the drafted phase 2 content workflow. Phase 0 and phase 1 code remain as built.
+Scope now: phase 5 is implemented in the local dashboard. Phase 0 through phase 4 code remain as built.
 
-Non-goals now: implementing phase 2 in the planning step, the phase 3 plan, deploys, provider calls, and secret values. Whole-project exclusions stay in phase 0 §2.
+Non-goals now: deploys, live provider calls beyond the existing inbox read, turning a switch on, and secret values. Whole-project exclusions stay in phase 0 §2.
 
 ## 4. Risk classification
 
@@ -61,7 +61,7 @@ Roles below ran for phase 0. The lead materialized the role files in this sessio
 | R1 | Strategy baseline and MCG stage 1 acceptance | Blueprint §21 | `product-manager-subagent` | phase 1 acceptance, not yet planned as a file | mapped |
 | R2 | Content workflow and source rules | Blueprint §§8–11, 22 | `software-engineer-subagent` | phase 2 | mapped |
 | R3 | Approvals and Facebook/Instagram publishing | Blueprint §§7, 23 | `software-engineer-subagent` | phase 3 | mapped |
-| R4 | Community, reviews, visibility | Blueprint §§12–14, 24 | `software-engineer-subagent` | phase 4 | mapped |
+| R4 | Community, reviews, visibility | Blueprint §§12–14, 24 | `software-engineer-subagent` | milestone 4 accepted 2026-11-20 | accepted |
 | R5 | Dashboard, reporting, handover, week 6 buffer | Blueprint §§15–17, 25–26, 30–32, 35 | `project-lead-subagent` | phase 5 and final checklist | mapped |
 
 ## 7. Dependency and gate order
@@ -74,6 +74,8 @@ Roles below ran for phase 0. The lead materialized the role files in this sessio
 6. Phase 5 writes `docs/plans/final_implementation_checklist.md`.
 
 UX and growth stay out of the phase 0 chain. Later phases reassess them.
+
+Phase 4 growth-marketing-subagent is skipped. Review ethics and channel limits are already fixed in phase 0 §2, and this phase adds no experiment.
 
 ## 8. Path and external-system ownership
 
@@ -102,13 +104,13 @@ No external MCP writes. No deploys. Vercel and Supabase skills apply only after 
 
 | Finding or requirement | Owner | Status | Invalidated gates | Recheck requirement |
 |---|---|---|---|---|
-| S0-1 idempotency key not stored by `beginPublish` | software engineer in phase 3 | open, low | security must rerun when a publisher is added | insert the key before any network call |
-| S0-2 `kill_switch` rows are not loaded | software engineer in phase 3 | open, low | security must rerun when a publisher is added | load rows through `killSwitchesFromRows` |
+| S0-1 idempotency key not stored by `beginPublish` | software engineer in phase 3 | closed in `publishRun` | none | a conflicting key must not call the adapter |
+| S0-2 `kill_switch` rows are not loaded | software engineer in phase 3 | closed in `publishRun` | none | default rows keep the switch off |
 | SQL migration apply | software engineer when `DATABASE_URL` exists | unverified | none | apply `db/migrations/001_foundation.sql` |
 
 ## 12. Artifact and evidence index
 
-- Active plan: `docs/plans/phase_1_strategy_baseline_plan.md`
+- Active plan: `docs/plans/phase_4_community_reputation_plan.md`
 - Phase 0 plan: `docs/plans/phase_0_foundations_plan.md`
 - Blueprint: `docs/blueprints/MCG_Property_Marketing_Automation_Technical_Implementation_Plan.md`
 - Decision: `docs/decisions/0001-foundation-stack.md`

@@ -8,7 +8,7 @@
   "scripts": {
     "test": "node --experimental-strip-types --test test/*.test.ts",
     "typecheck": "tsc --noEmit",
-    "dashboard": "node --experimental-strip-types src/dashboard/serve.ts",
+    "dashboard": "node --env-file-if-exists=.env --experimental-strip-types src/dashboard/serve.ts",
     "examples": "node --experimental-strip-types src/content/write-examples.ts",
     "worker": "node --env-file=.env --experimental-strip-types src/queue/serve.ts"
   },

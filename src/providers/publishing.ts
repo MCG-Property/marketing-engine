@@ -35,6 +35,5 @@ export function beginPublish(command: PublishCommand): 'PUBLISHING' {
   if (!canPublish(command.actorRole)) {
     throw new Error('role cannot publish')
   }
-  // shortcut: caller persists idempotencyKey on publication, phase 3 insert
   return 'PUBLISHING'
 }
