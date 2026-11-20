@@ -1,0 +1,1 @@
+Sample carousel. Frame one: logo. Frame two: pillar. Frame three: caption. No price and no statistic.

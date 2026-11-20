@@ -1,0 +1,24 @@
+{
+  "name": "marketing-engine",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "scripts": {
+    "test": "node --experimental-strip-types --test test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "dashboard": "node --experimental-strip-types src/dashboard/serve.ts",
+    "examples": "node --experimental-strip-types src/content/write-examples.ts",
+    "worker": "node --env-file=.env --experimental-strip-types src/queue/serve.ts"
+  },
+  "dependencies": {
+    "pg": "^8.23.1",
+    "pg-boss": "^12.38.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@types/pg": "^8.15.4",
+    "typescript": "^5.9.2"
+  }
+}

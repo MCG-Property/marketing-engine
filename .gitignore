@@ -1,4 +1,6 @@
 .DS_Store
+node_modules/
+*.tsbuildinfo
 Thumbs.db
 .env
 .env.*
